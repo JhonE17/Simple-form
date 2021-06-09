@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <title>Edit form post</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="mb-4 text-black"><%= form.name %> <%= form.lastName %> </h1>
+
+        <form action="/forms/<%= form.id %>?_method=PUT" method="POST">
+            <div class="form-group">
+
+                <label for="Name" class="text-black">Name</label>
+                <input type="text" class="form-control" placeholder="Name" name="name" value="<%= form.name %>"
+                    required>
+            </div>
+            <div class="form-group">
+
+                <label for="LastName" class="text-black">Last Name</label>
+                <input type="text" class="form-control" placeholder="Last Name" name="lastName" value="<%= form.lastName %>"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="type" class="text-black">Type Document</label>
+                <select class="form-control" name="type" id="type" required>
+                    <option value="Cedula de ciudadania">Cedula de ciudadania</option>
+                    <option value="Cedula de extranjeria">Cedula de extranjeria</option>
+                    <option value="Permiso especial de permanencia">Permiso especial de permanencia</option>
+                    <option value="Pasaporte">Pasaporte</option>
+                    <option value="Tarjeta de identidad"">Tarjeta de identidad"</option>
+                    <option value="NIT">NIT</option>
+                </select>  
+            </div>
+            <div class="form-group">
+
+                <label for="CC" class="text-black">CC</label>
+                <input type="text" class="form-control" placeholder="CC" name="cc" value="<%= form.cc %>"
+                    required>
+            </div>
+            <div class="form-group">
+
+                <label for="Email" class="text-black">Email</label>
+                <input type="text" class="form-control" placeholder="Email" name="email" value="<%= form.email %>"
+                    required>
+            </div>
+            <div class="form-group">
+
+                <label for="Phone" class="text-black">Phone</label>
+                <input type="text" class="form-control" placeholder="Phone" name="phone" value="<%= form.phone %>"
+                    required>
+            </div>
+            
+
+            <div class="form-group">
+
+                <label for="Birthday" class="text-black">Birthday</label>
+                <input type="date" class="form-control" placeholder="Birthday" name="birthday" value="<%= form.birthday %>"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <a href="/" class="btn btn-danger">Cancel</a>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

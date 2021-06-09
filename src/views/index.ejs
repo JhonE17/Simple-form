@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Simple Form</title>
+</head>
+
+<body>
+    <div class="container">
+        
+        <div class="row mb-4">
+            <a href="forms/new" class="btn btn-success d-flex align-items-center"><i
+                    class="material-icons mr-2">add_circle</i>
+                New form</a>
+        </div>
+
+        <div class="row">
+            <% if(forms.length<1){%>
+                <p class="text-white">No posts yet, create a new one</p>
+                <%  } %>
+    
+    
+                <% forms.forEach(form=>{ %>
+                    <div class="col-lg-5 card mt-2 mr-4">
+                        <div class="row p-2">
+                            <div class="col-5 overflow-hidden">
+                                <a href="uploads/<%= form.image %>" target="_blank" download">
+                                    <img src="uploads/<%= form.image %>" class="card-img" alt="Click me!">
+                                </a>
+                            </div>
+                            <div class="col-7">
+                                <div class="d-flex align-items-start">
+                                    <h5 class="w-100"><b> <%= form.name %> </b></h5>
+                                    <!-- display more button -->
+                                    <div class="more position-relative" style="cursor: pointer;">
+                                        <i class="material-icons p-2">more_vert</i>
+                                        <!-- options list -->
+                                        <div class="d-none options card rounded-pill shadow-sm p-1 position-absolute">
+                                            <a href="forms/edit/<%= form.id %> " class="rounded-circle p-2 mb-1"
+                                                style=" border: none;">
+                                                <i class="material-icons" style="color:#000">create</i>
+                                            </a>
+                                            <form action="/forms/<%=form.id%>?_method=DELETE" method="POST">
+                                                <button class="rounded-circle p-2 " style="background: none;border: none;">
+                                                    <i class="material-icons" style="color:#f00">delete</i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="align-self-stretch "><%= form.lastName %>
+                                <span class="align-self-stretch "><%= form.type %>
+                                <span class="align-self-stretch "><%= form.cc %>
+                                <span class="align-self-stretch "><%= form.email %>
+                                <span class="align-self-stretch "><%= form.phone %>
+                                </span>
+                                <div class="d-flex align-items-end">
+                                    <div class="mr-2">
+                                        <img src="uploads/<%= form.image %>" class="rounded-circle"
+                                            style="width: 50px; height: 50px;">
+                                    </div>
+                                    <div class=" flex-grow-1">
+                                        <h5 class="" style="font-size: 14px; line-height: 0.8rem;">
+                                            <span><b><%= form.birthday%></b></span></h5>
+                                        <p style="font-size: 10px; line-height: .3rem;">
+                                            <%= form.createAt.toLocaleDateString() %></p>
+                                    </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+                </div>
+                <script src="js/index.js"></script>
+</body>
+
+</html>
