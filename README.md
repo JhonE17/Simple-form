@@ -4,20 +4,27 @@ REST Api for storing basic information and / or file storage
 
 Routes
 ========
-####`List all documents stored`
-*`/` Route main 
+`List all documents stored`
+-----
+`/` Route main 
 
-####`Add new information`
-*`/form/new` 
+`Add new information`
+-----
+`/form/new` 
 
-####`Edit desired information`
-*`/form/edit/:id`
-
-####`Delete desired infromation`
-*`/form/delete/:id`
-
-#### `Get specific user`
-*`/form/:id`
+`Edit desired information`
+-----
+```
+`/form/edit/:id`
+```
+`Delete desired infromation`
+-----
+```
+`/form/delete/:id`
+```
+`Get specific user`
+-----
+`/form/:id`
 
 
 Installation
@@ -43,7 +50,7 @@ $ yarn install ó $ yarn i
 ```
 Run the project
 ```
-$ npm run dev
-$ yarn dev
+$ npm run start
+$ yarn start
 ``
 [GitHub](https://github.com/JhonE17)
